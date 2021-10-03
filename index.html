@@ -170,7 +170,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-10-03 20:42:53 / 修改时间：21:07:42" itemprop="dateCreated datePublished" datetime="2021-10-03T20:42:53+08:00">2021-10-03</time>
+              <time title="创建时间：2021-10-03 20:42:53 / 修改时间：21:13:59" itemprop="dateCreated datePublished" datetime="2021-10-03T20:42:53+08:00">2021-10-03</time>
             </span>
 
           
@@ -184,11 +184,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h3 id="帕塞瓦尔定理"><a href="#帕塞瓦尔定理" class="headerlink" title="帕塞瓦尔定理"></a>帕塞瓦尔定理</h3><p><code>\sum_&#123;n=1&#125;^&#123;N-1&#125; e^ &#123;2&#125; (n) = \frac&#123;1&#125;&#123;N&#125;\sum_&#123;k = 1&#125;^&#123;N-1&#125; \left\vert E[k] \right\vert ^ &#123;2&#125;</code></p>
+          <h3 id="帕塞瓦尔定理"><a href="#帕塞瓦尔定理" class="headerlink" title="帕塞瓦尔定理"></a>帕塞瓦尔定理</h3><p>$\sum_{n=1}^{N-1} e^ {2} (n) = \frac{1}{N}\sum_{k = 1}^{N-1} \left\vert E[k] \right\vert ^ {2}$</p>
 <p>CSPD 计算公式：</p>
-<p><code> \frac&#123;1&#125;&#123;N&#125; \sum_&#123;n=1&#125;^&#123;N-1&#125; e^ &#123;2&#125; (n) = \sum_&#123;k = 1&#125;^&#123;N-1&#125; \frac&#123;\left\vert E[k] \right\vert ^ &#123;2&#125;&#125;&#123;N^ &#123;2&#125; &#125; = \int_&#123;0&#125; ^ &#123;\frac&#123;f_s&#125;&#123;2&#125;&#125; S_e(f) df</code> </p>
+<p>$ \frac{1}{N} \sum_{n=1}^{N-1} e^ {2} (n) = \sum_{k = 1}^{N-1} \frac{\left\vert E[k] \right\vert ^ {2}}{N^ {2} } = \int_{0} ^ {\frac{f_s}{2}} S_e(f) df$ </p>
 <p>故而PSD 计算公式为：</p>
-<p><code>S_e(k) = \frac&#123;\left\vert E[k] \right\vert ^ &#123;2&#125;&#125;&#123;N^ &#123;2&#125; \Delta f &#125;</code></p>
+<p>$S_e(k) = \frac{\left\vert E[k] \right\vert ^ {2}}{N^ {2} \Delta f }$</p>
 
       
     </div>
@@ -434,6 +434,59 @@
   
 
   
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 
